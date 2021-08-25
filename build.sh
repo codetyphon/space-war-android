@@ -1,7 +1,9 @@
 mkdir build
 java -jar ./tools/apktool_2.5.0.jar  d -s -o decoded ./tools/love-11.3-android-embed.apk
 mkdir ./decoded/assets
-zip -9 -r ./decoded/assets/game.love ./src
+cd src
+zip -9 -r ../decoded/assets/game.love .
+cd ..
 rm ./decoded/AndroidManifest.xml
 cp ./AndroidManifest.xml ./decoded/
 java -jar ./tools/apktool_2.5.0.jar  b -o ./build/debug.apk decoded
